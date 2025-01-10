@@ -1,10 +1,10 @@
-# Cathy Bank
+# Cathy Bank path
 
-##程式邏輯題目
+## 程式邏輯題目
 CATHY/code.py
 
-##自動化測試
+## 自動化測試
 /CATHY/app_regression
 
-##自動化測試 readme
+## 自動化測試 readme
 /CATHY/app_regression/App_README.md
