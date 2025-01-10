@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.7 on darwin)" generated="2025-01-09T18:28:16.349492" rpa="false" schemaversion="5">
+<suite id="s1" name="CathyBank" source="/Users/elainaweng/Downloads/cathay/app_regression/tests/Android/TestCase/CathyBank.robot">
+<kw name="Android Open Chrome Browser" owner="AndroidDeviceInfo" type="SETUP">
+<kw name="Get Device Info" owner="AndroidBaseUICore">
+<msg time="2025-01-09T18:28:16.441301" level="INFO">@{DeviceInfo} = [ http://localhost:4740 | Android | 14 | emulator-5554 | com.android.chrome | com.google.android.apps.chrome.Main | uiautomator2 | 8140 ]</msg>
+<var>@{DeviceInfo}</var>
+<arg>${devicename}</arg>
+<arg>${port}</arg>
+<status status="PASS" start="2025-01-09T18:28:16.439857" elapsed="0.001460"/>
+</kw>
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${DeviceInfo}[0]</arg>
+<arg>platformName=${DeviceInfo}[1]</arg>
+<arg>platformVersion=${DeviceInfo}[2]</arg>
+<arg>deviceName=${DeviceInfo}[3]</arg>
+<arg>appPackage=${DeviceInfo}[4]</arg>
+<arg>appActivity=${DeviceInfo}[5]</arg>
+<arg>automationName=${DeviceInfo}[6]</arg>
+<arg>systemPort=${DeviceInfo}[7]</arg>
+<arg>noReset=${True}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2025-01-09T18:28:16.441571" elapsed="4.395349"/>
+</kw>
+<status status="PASS" start="2025-01-09T18:28:16.439741" elapsed="4.397409"/>
+</kw>
+<test id="s1-t1" name="正確開啟國泰世華網頁並截圖" line="14">
+<kw name="Go To Url" owner="AppiumLibrary">
+<arg>https://www.cathaybk.com.tw/cathaybk/</arg>
+<doc>Opens URL in default web browser.</doc>
+<status status="PASS" start="2025-01-09T18:28:20.838717" elapsed="0.576766"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:23.277400" level="INFO">xpath criteria: //*[@text="國泰世華銀行"]</msg>
+<arg>${cathy_text_index_title}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:21.415803" elapsed="1.861702"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:23.870802" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="cathy_index.png"&gt;&lt;img src="cathy_index.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>cathy_index.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:23.277837" elapsed="0.593045"/>
+</kw>
+<status status="PASS" start="2025-01-09T18:28:20.837278" elapsed="3.033741"/>
+</test>
+<test id="s1-t2" name="正確計算信用卡子項目數量並截圖" line="18">
+<kw name="Go To Url" owner="AppiumLibrary">
+<arg>https://www.cathaybk.com.tw/cathaybk/</arg>
+<doc>Opens URL in default web browser.</doc>
+<status status="PASS" start="2025-01-09T18:28:23.871656" elapsed="0.188962"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:26.330498" level="INFO">xpath criteria: //*[@text="國泰世華銀行"]</msg>
+<arg>${cathy_text_index_title}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:24.060868" elapsed="2.269740"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:26.888150" level="INFO">xpath criteria: //android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:26.331523" elapsed="0.556735"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:26.889580" level="INFO">Clicking element 'xpath=//android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]'.</msg>
+<msg time="2025-01-09T18:28:26.984984" level="INFO">xpath criteria: //android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:26.888466" elapsed="0.096625"/>
+</kw>
+<arg>${cathy_button_functional_icon}</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-01-09T18:28:26.331032" elapsed="0.654173"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:27.347001" level="INFO">xpath criteria: //*[@text="產品介紹"]
+xpath criteria: //*[@text="產品介紹"]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:26.986024" elapsed="0.361079"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:27.348902" level="INFO">Clicking element 'xpath=//*[@text="產品介紹"]'.</msg>
+<msg time="2025-01-09T18:28:27.466569" level="INFO">xpath criteria: //*[@text="產品介紹"]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:27.347392" elapsed="0.119219"/>
+</kw>
+<arg>${cathy_button_product_intro}</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-01-09T18:28:26.985613" elapsed="0.481045"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:28.428626" level="INFO">xpath criteria: //*[@text="信用卡"]
+xpath criteria: //*[@text="信用卡"]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:27.466958" elapsed="0.961709"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:28.429306" level="INFO">Clicking element 'xpath=//*[@text="信用卡"]'.</msg>
+<msg time="2025-01-09T18:28:28.550285" level="INFO">xpath criteria: //*[@text="信用卡"]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.428751" elapsed="0.121581"/>
+</kw>
+<arg>${cathy_button_credit_card}</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-01-09T18:28:27.466788" elapsed="1.083598"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:28.928400" level="INFO">xpath criteria: //*[@text="卡片介紹"]
+xpath criteria: //*[@text="卡片介紹"]</msg>
+<arg>${cathy_button_credit_card_intro}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.550526" elapsed="0.377926"/>
+</kw>
+<kw name="Get Webelements" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:28.992476" level="INFO">xpath criteria: //*[@text="信用卡"]//following-sibling::*</msg>
+<msg time="2025-01-09T18:28:28.992755" level="INFO">${credit_card_list} = [&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="00000000-0000-004d-0000-043900000059")&gt;, &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5...</msg>
+<var>${credit_card_list}</var>
+<arg>${cathy_list_credit_card}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.928619" elapsed="0.064173"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-01-09T18:28:28.993619" level="INFO">Length is 9.</msg>
+<msg time="2025-01-09T18:28:28.993703" level="INFO">${credit_card_num} = 9</msg>
+<var>${credit_card_num}</var>
+<arg>${credit_card_list}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.993380" elapsed="0.000357"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Number of credit card sub-item : ${credit_card_num}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.993952" elapsed="0.000201"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:29.234170" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="cathy_credit_card_sub_item.png"&gt;&lt;img src="cathy_credit_card_sub_item.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>cathy_credit_card_sub_item.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:28.994333" elapsed="0.239976"/>
+</kw>
+<status status="PASS" start="2025-01-09T18:28:23.871138" elapsed="5.363643"/>
+</test>
+<test id="s1-t3" name="正確計算停發卡數量並截圖" line="29">
+<kw name="Go To Url" owner="AppiumLibrary">
+<arg>https://www.cathaybk.com.tw/cathaybk/</arg>
+<doc>Opens URL in default web browser.</doc>
+<status status="PASS" start="2025-01-09T18:28:29.235893" elapsed="0.055321"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:31.020667" level="INFO">xpath criteria: //*[@text="國泰世華銀行"]
+xpath criteria: //*[@text="國泰世華銀行"]</msg>
+<arg>${cathy_text_index_title}</arg>
+<arg>15</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:29.291360" elapsed="1.729436"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:31.578925" level="INFO">xpath criteria: //android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:31.021882" elapsed="0.557085"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:31.579565" level="INFO">Clicking element 'xpath=//android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]'.</msg>
+<msg time="2025-01-09T18:28:31.666253" level="INFO">xpath criteria: //android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:31.579050" elapsed="0.087300"/>
+</kw>
+<arg>${cathy_button_functional_icon}</arg>
+<arg>15</arg>
+<status status="PASS" start="2025-01-09T18:28:31.021353" elapsed="0.645092"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:32.011170" level="INFO">xpath criteria: //*[@text="產品介紹"]
+xpath criteria: //*[@text="產品介紹"]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:31.667089" elapsed="0.344130"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:32.011941" level="INFO">Clicking element 'xpath=//*[@text="產品介紹"]'.</msg>
+<msg time="2025-01-09T18:28:32.134872" level="INFO">xpath criteria: //*[@text="產品介紹"]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:32.011308" elapsed="0.123671"/>
+</kw>
+<arg>${cathy_button_product_intro}</arg>
+<arg>15</arg>
+<status status="PASS" start="2025-01-09T18:28:31.666718" elapsed="0.468375"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:33.014141" level="INFO">xpath criteria: //*[@text="信用卡"]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:32.135863" elapsed="0.878403"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:33.015873" level="INFO">Clicking element 'xpath=//*[@text="信用卡"]'.</msg>
+<msg time="2025-01-09T18:28:33.116222" level="INFO">xpath criteria: //*[@text="信用卡"]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:33.014503" elapsed="0.101815"/>
+</kw>
+<arg>${cathy_button_credit_card}</arg>
+<arg>15</arg>
+<status status="PASS" start="2025-01-09T18:28:32.135407" elapsed="0.981007"/>
+</kw>
+<kw name="Click Element After It Is Visible" owner="CommonMethod">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:33.478874" level="INFO">xpath criteria: //*[@text="卡片介紹"]
+xpath criteria: //*[@text="卡片介紹"]</msg>
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:33.117189" elapsed="0.361730"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:33.479562" level="INFO">Clicking element 'xpath=//*[@text="卡片介紹"]'.</msg>
+<msg time="2025-01-09T18:28:33.601116" level="INFO">xpath criteria: //*[@text="卡片介紹"]</msg>
+<arg>${locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:33.479002" elapsed="0.122203"/>
+</kw>
+<arg>${cathy_button_credit_card_intro}</arg>
+<arg>15</arg>
+<status status="PASS" start="2025-01-09T18:28:33.116730" elapsed="0.484572"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:35.365854" level="INFO">xpath criteria: //*[@text="信用卡介紹"]
+xpath criteria: //*[@text="信用卡介紹"]</msg>
+<arg>${cathy_text_credit_card_intro_title}</arg>
+<arg>15</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:33.601528" elapsed="1.764382"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:37.366494" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:35.366089" elapsed="2.000728"/>
+</kw>
+<kw name="Switch To Context" owner="AppiumLibrary">
+<arg>WEBVIEW_chrome</arg>
+<doc>Switch to a new context</doc>
+<status status="PASS" start="2025-01-09T18:28:37.367544" elapsed="2.588219"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:41.958738" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:39.956041" elapsed="2.002898"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.031611" level="INFO">xpath criteria: //*[@class="cubre-a-iconTitle__text" and text()="停發卡"]</msg>
+<arg>${cathy_text_stop_card_title}</arg>
+<arg>5</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2025-01-09T18:28:41.959433" elapsed="0.072223"/>
+</kw>
+<kw name="Scroll Element Into View" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.032687" level="INFO">Scrolling element 'xpath=//*[@class="cubre-a-iconTitle__text" and text()="停發卡"]' into view.</msg>
+<msg time="2025-01-09T18:28:42.065836" level="INFO">xpath criteria: //*[@class="cubre-a-iconTitle__text" and text()="停發卡"]</msg>
+<arg>${cathy_text_stop_card_title}</arg>
+<doc>Scrolls an element from given ``locator`` into view.
+Arguments:
+- ``locator``: The locator to find requested element. Key attributes for
+               arbitrary elements are ``id`` and ``name``. See `introduction` for
+               details about locating elements.
+Examples:
+| Scroll Element Into View | css=div.class |</doc>
+<status status="PASS" start="2025-01-09T18:28:42.031848" elapsed="0.034032"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.416105" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_list.png"&gt;&lt;img src="stop_card_list.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_list.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.065995" elapsed="0.350171"/>
+</kw>
+<kw name="Get Webelements" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.442681" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//div[@class="cubre-m-compareCard__title"]</msg>
+<msg time="2025-01-09T18:28:42.442774" level="INFO">${stop_card_name} = [&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.1897")&gt;, &lt;appium.webdriver.we...</msg>
+<var>${stop_card_name}</var>
+<arg>${cathy_text_stop_card_name}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.416294" elapsed="0.026491"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-01-09T18:28:42.442993" level="INFO">Length is 11.</msg>
+<msg time="2025-01-09T18:28:42.443017" level="INFO">${stop_card_count} = 11</msg>
+<var>${stop_card_count}</var>
+<arg>${stop_card_name}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.442915" elapsed="0.000108"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>停發卡數量 : ${stop_card_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.443092" elapsed="0.000072"/>
+</kw>
+<kw name="Get Webelements" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.469333" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//div[@class="cubre-o-slide__page swiper-pagination-clickable swiper-pagination-bullets"]//span</msg>
+<msg time="2025-01-09T18:28:42.469433" level="INFO">${stop_card_point} = [&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.451")&gt;, &lt;appium.webdriver.web...</msg>
+<var>${stop_card_point}</var>
+<arg>${cathy_list_stop_card}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.443246" elapsed="0.026199"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-01-09T18:28:42.469661" level="INFO">Length is 11.</msg>
+<msg time="2025-01-09T18:28:42.469693" level="INFO">${stop_card_point_num} = 11</msg>
+<var>${stop_card_point_num}</var>
+<arg>${stop_card_point}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.469580" elapsed="0.000119"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.498465" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 1"]</msg>
+<msg time="2025-01-09T18:28:42.498553" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.451")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.469883" elapsed="0.028684"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:42.499269" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.451")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.498657" elapsed="0.163310"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:44.663402" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:42.662063" elapsed="2.001663"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:44.848416" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_1.png"&gt;&lt;img src="stop_card_1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:44.664273" elapsed="0.184212"/>
+</kw>
+<var name="${counter}">0</var>
+<status status="PASS" start="2025-01-09T18:28:42.469837" elapsed="2.378684"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:44.864582" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 2"]</msg>
+<msg time="2025-01-09T18:28:44.864646" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.452")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:44.848665" elapsed="0.015991"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:44.865308" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.452")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:44.864733" elapsed="0.130194"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:46.997575" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:44.995123" elapsed="2.002758"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:47.211010" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_2.png"&gt;&lt;img src="stop_card_2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:46.998720" elapsed="0.212362"/>
+</kw>
+<var name="${counter}">1</var>
+<status status="PASS" start="2025-01-09T18:28:44.848604" elapsed="2.362506"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:47.227542" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 3"]</msg>
+<msg time="2025-01-09T18:28:47.227597" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.453")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:47.211274" elapsed="0.016333"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:47.228228" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.453")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:47.227676" elapsed="0.122612"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:49.351256" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:47.350403" elapsed="2.001176"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:49.583527" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_3.png"&gt;&lt;img src="stop_card_3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:49.352152" elapsed="0.231424"/>
+</kw>
+<var name="${counter}">2</var>
+<status status="PASS" start="2025-01-09T18:28:47.211198" elapsed="2.372405"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:49.601746" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 4"]</msg>
+<msg time="2025-01-09T18:28:49.601823" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.454")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:49.583736" elapsed="0.018099"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:49.602471" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.454")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:49.601919" elapsed="0.113512"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:51.716914" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:49.715745" elapsed="2.001493"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:51.925349" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_4.png"&gt;&lt;img src="stop_card_4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:51.717799" elapsed="0.207635"/>
+</kw>
+<var name="${counter}">3</var>
+<status status="PASS" start="2025-01-09T18:28:49.583677" elapsed="2.341802"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:51.942715" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 5"]</msg>
+<msg time="2025-01-09T18:28:51.942780" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.455")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:51.925806" elapsed="0.016989"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:51.943466" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.455")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:51.942877" elapsed="0.118605"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:54.063511" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:52.061716" elapsed="2.001926"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:54.254585" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_5.png"&gt;&lt;img src="stop_card_5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:54.063857" elapsed="0.190806"/>
+</kw>
+<var name="${counter}">4</var>
+<status status="PASS" start="2025-01-09T18:28:51.925693" elapsed="2.328998"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:54.270912" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 6"]</msg>
+<msg time="2025-01-09T18:28:54.270975" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.456")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:54.254855" elapsed="0.016131"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:54.272051" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.456")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:54.271352" elapsed="0.112904"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:56.385330" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:54.384491" elapsed="2.001177"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:56.605770" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_6.png"&gt;&lt;img src="stop_card_6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:56.386294" elapsed="0.219526"/>
+</kw>
+<var name="${counter}">5</var>
+<status status="PASS" start="2025-01-09T18:28:54.254776" elapsed="2.351073"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:56.623700" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 7"]</msg>
+<msg time="2025-01-09T18:28:56.623773" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.457")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:56.605996" elapsed="0.017792"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:56.624546" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.457")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:56.623871" elapsed="0.112307"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:28:58.737289" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:56.736510" elapsed="2.001102"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:58.957794" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_7.png"&gt;&lt;img src="stop_card_7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:28:58.738190" elapsed="0.219671"/>
+</kw>
+<var name="${counter}">6</var>
+<status status="PASS" start="2025-01-09T18:28:56.605929" elapsed="2.351969"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:58.975182" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 8"]</msg>
+<msg time="2025-01-09T18:28:58.975260" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.458")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:28:58.958080" elapsed="0.017191"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:28:58.975949" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.458")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:28:58.975361" elapsed="0.113672"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:29:01.091274" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:28:59.089277" elapsed="2.002264"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:01.301838" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_8.png"&gt;&lt;img src="stop_card_8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:29:01.091988" elapsed="0.209913"/>
+</kw>
+<var name="${counter}">7</var>
+<status status="PASS" start="2025-01-09T18:28:58.957995" elapsed="2.343934"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:01.318771" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 9"]</msg>
+<msg time="2025-01-09T18:29:01.318829" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.459")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:29:01.302071" elapsed="0.016769"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:01.319512" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.459")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:29:01.318915" elapsed="0.112501"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:29:03.432320" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:29:01.431651" elapsed="2.001011"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:03.661476" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_9.png"&gt;&lt;img src="stop_card_9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:29:03.433241" elapsed="0.228501"/>
+</kw>
+<var name="${counter}">8</var>
+<status status="PASS" start="2025-01-09T18:29:01.302005" elapsed="2.359765"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:03.678614" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 10"]</msg>
+<msg time="2025-01-09T18:29:03.678677" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.460")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:29:03.661910" elapsed="0.016778"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:03.679320" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.460")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:29:03.678764" elapsed="0.114104"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:29:05.794165" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:29:03.793057" elapsed="2.001454"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:05.981591" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_10.png"&gt;&lt;img src="stop_card_10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:29:05.795112" elapsed="0.186549"/>
+</kw>
+<var name="${counter}">9</var>
+<status status="PASS" start="2025-01-09T18:29:03.661844" elapsed="2.319851"/>
+</iter>
+<iter>
+<kw name="Get Webelement" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:06.003168" level="INFO">xpath criteria: //div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide 11"]</msg>
+<msg time="2025-01-09T18:29:06.003241" level="INFO">${element} = &lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.461")&gt;</msg>
+<var>${element}</var>
+<arg>xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//span[@aria-label="Go to slide ${${counter}+1}"]</arg>
+<doc>Returns the first [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] object matching ``locator``.</doc>
+<status status="PASS" start="2025-01-09T18:29:05.981840" elapsed="0.021412"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:06.003925" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="03d7bfa5-5add-4188-a341-2682fd024020", element="f.084EC99C6330EE050E6FDD79E71D36DA.d.4948054FA5067DD973E0F82290714FCD.e.461")&gt;'.</msg>
+<arg>${element}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2025-01-09T18:29:06.003339" elapsed="0.115197"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-09T18:29:08.119490" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-09T18:29:06.118630" elapsed="2.001175"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-01-09T18:29:08.319772" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="stop_card_11.png"&gt;&lt;img src="stop_card_11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>stop_card_${${counter}+1}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="PASS" start="2025-01-09T18:29:08.120440" elapsed="0.199432"/>
+</kw>
+<var name="${counter}">10</var>
+<status status="PASS" start="2025-01-09T18:29:05.981775" elapsed="2.338151"/>
+</iter>
+<var>${counter}</var>
+<value>${stop_card_point_num}</value>
+<status status="PASS" start="2025-01-09T18:28:42.469750" elapsed="25.850196"/>
+</for>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${stop_card_count}</arg>
+<arg>${stop_card_point_num}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-01-09T18:29:08.320100" elapsed="0.000207"/>
+</kw>
+<status status="PASS" start="2025-01-09T18:28:29.235119" elapsed="39.085298"/>
+</test>
+<kw name="Terminate Application" owner="AppiumLibrary" type="TEARDOWN">
+<arg>com.android.chrome</arg>
+<doc>Terminate the given app on the device</doc>
+<status status="PASS" start="2025-01-09T18:29:08.320734" elapsed="0.262514"/>
+</kw>
+<status status="PASS" start="2025-01-09T18:28:16.350566" elapsed="52.232725"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="CathyBank">CathyBank</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

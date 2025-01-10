@@ -1,0 +1,11 @@
+*** Variables ***
+${cathy_text_index_title}    xpath=//*[@text="國泰世華銀行"]
+${cathy_button_functional_icon}    xpath=//android.webkit.WebView[@text="國泰世華銀行"]/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]
+${cathy_button_product_intro}    xpath=//*[@text="產品介紹"]
+${cathy_button_credit_card}    xpath=//*[@text="信用卡"]
+${cathy_button_credit_card_intro}    xpath=//*[@text="卡片介紹"]
+${cathy_list_credit_card}    xpath=//*[@text="信用卡"]//following-sibling::*
+${cathy_text_credit_card_intro_title}    xpath=//*[@text="信用卡介紹"]
+${cathy_text_stop_card_title}    xpath=//*[@class="cubre-a-iconTitle__text" and text()="停發卡"]
+${cathy_text_stop_card_name}    xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//div[@class="cubre-m-compareCard__title"]
+${cathy_list_stop_card}    xpath=//div[@class="cubre-a-iconTitle__text" and text()='停發卡']/ancestor::div[contains(@class,'cubre-o-block__wrap')]//div[@class="cubre-o-slide__page swiper-pagination-clickable swiper-pagination-bullets"]//span

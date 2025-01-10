@@ -1,0 +1,10 @@
+*** Settings ***
+Library    AppiumLibrary
+Resource    AndroidDeviceInfo.txt
+Resource    ../Variable/CathyBankVariable.txt
+
+*** Keywords ***
+Click Element After It Is Visible
+    [Arguments]    ${locator}    ${timeout}
+    Wait Until Element Is Visible    ${locator}    timeout=${timeout}
+    Click Element    ${locator}
